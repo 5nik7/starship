@@ -20,7 +20,7 @@ use_os_path_sep = false
 use_logical_path = true
 
 [git_branch]
-format = "[ $branch](bold mauve) "
+format = "[ $branch](bold peach) "
 
 [git_status]
 # disabled = true
