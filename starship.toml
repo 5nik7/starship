@@ -5,7 +5,7 @@
 
 palette = "catppuccin_mocha"
 
-format="$cmd_duration$os$directory$git_branch$git_status$character"
+format="$character$git_branch$git_status$os$directory$cmd_duration[](text) "
 add_newline = true
 
 [cmd_duration]
@@ -13,18 +13,18 @@ format = "[$duration](flamingo) "
 disabled = false
 
 [directory]
-format = "[$path](bold blue) "
+format = "[$path](bold pink) "
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
 use_logical_path = true
 
 [git_branch]
-format = "[ $branch](bold mauve) "
+format = "[  $branch ](bold fg:blue bg:surface1)"
 
 [git_status]
 # disabled = true
-style = "yellow"
+style = "fg:yellow bg:surface1"
 staged = " ${count} " # nf-fa-check
 modified = " ${count} " # nf-fa-edit
 # modified = "  ${count}" # nf-fa-pencil
@@ -40,19 +40,16 @@ behind = "󰞖 ${count} " # nf-md-arrow_expand_down
 diverged = "󰡏 ${ahead_count} ${behind_count} " # nf-md-arrow_expand_vertical
 # diverged = "󰯎 ${ahead_count} ${behind_count}" # nf-md-swap_vertical_bold
 # ignore_submodules = true
-format = "[($staged$modified$renamed$untracked$deleted$conflicted$stashed$ahead_behind)]($style)"
+format = "[($staged$modified$renamed$untracked$deleted$conflicted$stashed$ahead_behind)]($style)[](bg:none fg:surface1) "
 
 [character]
-success_symbol = "[](teal)"
-error_symbol = "[](red)"
-vimcmd_symbol = "[󰅂](green)"
-vimcmd_visual_symbol = "[󰅂](mauve)"
-vimcmd_replace_symbol = "[󰅂](peach"
-format = "$symbol "
+success_symbol = ""
+error_symbol = ""
+vimcmd_symbol = "[ VI ](fg:crust bg:blue bold)[](bg:surface1 fg:blue)"
+format = "$symbol"
 
 [os]
-style = "blue"
-format = "[$symbol]($style) "
+format = "[$symbol](fg:overlay1 bg:none) "
 disabled = false
 
 [os.symbols]
