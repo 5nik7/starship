@@ -3,57 +3,81 @@
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 # set you color palette
 
-palette = "catppuccin_mocha"
+palette = "catppuccin_macchiato"
+add_newline = false
 
-format="$cmd_duration$os$directory$git_branch$git_status$character"
-add_newline = true
+format="$os$directory$git_branch$git_status$line_break$character"
+
+right_format = "$al$cmd_duration$time"
+
+[line_break]
+disabled = false
 
 [cmd_duration]
 format = "[$duration](flamingo) "
 disabled = false
 
+[time]
+disabled = false
+use_12hr = true
+time_format = "%R"
+format = '[$time](fg:overlay1 bg:none)'
+
 [directory]
-format = "[$path](bold blue) "
+format = '[$path]($style)[$read_only]($read_only_style)($style)'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
+style = "lavender"
+repo_root_style = "mauve bold"
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
-use_logical_path = true
+use_logical_path = false
+home_symbol = " "
+read_only = " "
+
+[jobs]
+format = "[$symbol$number](red)"
+threshold = 1
 
 [git_branch]
-format = "[ $branch](bold mauve) "
+format = "[  ](bold fg:overlay0 bg:none)[$branch](bold fg:overlay0 bg:none)"
 
 [git_status]
 # disabled = true
-style = "yellow"
+style = "fg:yellow bg:none"
 staged = " ${count} " # nf-fa-check
 modified = " ${count} " # nf-fa-edit
 # modified = "  ${count}" # nf-fa-pencil
 renamed = "󰗧 ${count} " # nf-md-cursor_text
 untracked = " ${count} " # nf-fa-question
-deleted = "[ ${count} ](red)" # nf-fa-remove
+deleted = "[ ${count}](red) " # nf-fa-remove
 conflicted = " ${count} " # nf-fa-flag
 stashed = " ${count} " # nf-fa-bank
 # stashed = "  ${count}" # nf-fa-inbox
 up_to_date = ""
 ahead = "󰞙 ${count} " # nf-md-arrow_expand_up
 behind = "󰞖 ${count} " # nf-md-arrow_expand_down
-diverged = "󰡏 ${ahead_count} ${behind_count} " # nf-md-arrow_expand_vertical
+diverged = "󰡏 ${ahead_count} ${behind_count}" # nf-md-arrow_expand_vertical
 # diverged = "󰯎 ${ahead_count} ${behind_count}" # nf-md-swap_vertical_bold
 # ignore_submodules = true
-format = "[($staged$modified$renamed$untracked$deleted$conflicted$stashed$ahead_behind)]($style)"
+format = "[( $staged$modified$renamed$untracked$deleted$conflicted$stashed$ahead_behind)]($style)"
 
 [character]
-success_symbol = "[](green)"
-error_symbol = "[](red)"
-vimcmd_symbol = "[󰅂](teal)"
-vimcmd_visual_symbol = "[󰅂](mauve)"
-vimcmd_replace_symbol = "[󰅂](peach"
+success_symbol = "[](bold green)"
+error_symbol = "[](red)"
+vimcmd_symbol = "[:](fg:blue bg:none bold)"
 format = "$symbol "
 
+[shlvl]
+threshold = 0
+symbol = "^"
+format = "[$symbol](red)" 
+repeat = true
+disabled = true
+
 [os]
-style = "blue"
-format = "[$symbol]($style) "
-disabled = false
+format = "[$symbol](fg:mauve bg:none) "
+disabled = true
 
 [os.symbols]
 Alpine = ""
@@ -75,31 +99,47 @@ Ubuntu = ""
 Unknown = ""
 Windows = "󰕰"
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
+[nodejs]
+detect_folders = ['']
+detect_files = ['package.json', '.node-version']
+style = "green"
+format = " [$symbol($version)]($style) "
+
+[ruby]
+symbol = " "
+style = "maroon"
+format = "[$symbol($version)]($style) "
+
+[python]
+format = '[\($virtualenv\)](yellow)'
+
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
 overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
+comment = "#5f5f87"
+hotpink = "#ff87af"
 
