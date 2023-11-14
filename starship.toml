@@ -1,89 +1,88 @@
 ## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-# set you color palette
+#         󰇁    󰇙  󰤃 󱪼 󱪼   
 
 palette = "catppuccin_macchiato"
 add_newline = true
 
 format="$os$directory$git_branch$git_status$line_break$character"
 
-right_format = "$al$cmd_duration$time"
+right_format = "$cmd_duration$time"
 
 [line_break]
-disabled = false
+disabled = true
 
 [cmd_duration]
 format = "[$duration](flamingo) "
-disabled = false
+disabled = true
 
 [time]
-disabled = false
+disabled = true
 use_12hr = true
 time_format = "%R"
-format = '[$time](fg:overlay1 bg:none)'
+format = '[$time](fg:overlay0 bg:none)'
 
 [directory]
-format = '[$path]($style)[$read_only]($read_only_style)($style)'
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)'
-style = "lavender"
-repo_root_style = "mauve bold"
+format = '[$path]($style) '
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) '
+style = "blue"
+before_repo_root_style = "blue dimmed"
+repo_root_style = "blue bold"
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
 use_logical_path = false
-home_symbol = " "
+home_symbol = "~"
 read_only = " "
 
 [jobs]
 format = "[$symbol$number](red)"
 threshold = 1
+disabled = true
 
 [git_branch]
-format = "[  ](bold fg:overlay0 bg:none)[$branch](bold fg:overlay0 bg:none)"
+format = "[](text dimmed)[$branch](subtext0 dimmed) "
 
 [git_status]
-# disabled = true
+disabled = false
 style = "fg:yellow bg:none"
 staged = " ${count} " # nf-fa-check
-modified = " ${count} " # nf-fa-edit
-# modified = "  ${count}" # nf-fa-pencil
-renamed = "󰗧 ${count} " # nf-md-cursor_text
+modified = "󰤌 ${count} " # nf-fa-edit
+renamed = "" # nf-md-cursor_text
 untracked = " ${count} " # nf-fa-question
 deleted = "[ ${count}](red) " # nf-fa-remove
 conflicted = " ${count} " # nf-fa-flag
-stashed = " ${count} " # nf-fa-bank
-# stashed = "  ${count}" # nf-fa-inbox
+stashed = "" # nf-fa-bank
 up_to_date = ""
-ahead = "󰞙 ${count} " # nf-md-arrow_expand_up
-behind = "󰞖 ${count} " # nf-md-arrow_expand_down
-diverged = "󰡏 ${ahead_count} ${behind_count}" # nf-md-arrow_expand_vertical
-# diverged = "󰯎 ${ahead_count} ${behind_count}" # nf-md-swap_vertical_bold
-# ignore_submodules = true
-format = "[( $staged$modified$renamed$untracked$deleted$conflicted$stashed$ahead_behind)]($style)"
+ahead = "${count} " # nf-md-arrow_expand_up
+behind = "${count} " # nf-md-arrow_expand_down
+diverged = "󰯎 ${ahead_count} ${behind_count} " # nf-md-arrow_expand_vertical
+ignore_submodules = true
+format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
 
 [character]
-success_symbol = "[ ](bold green)"
-error_symbol = "[ ](red)"
-vimcmd_symbol = "[ :](fg:blue bg:none bold)"
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+vimcmd_symbol = "[:](comment bold)"
 format = "$symbol "
 
 [shlvl]
 threshold = 0
 symbol = "^"
-format = "[$symbol](red)" 
+format = "[$symbol](red)"
 repeat = true
 disabled = true
 
 [os]
-format = "[$symbol](fg:mauve bg:none) "
+format = "[$symbol](fg:mauve bg:none)"
 disabled = true
 
 [os.symbols]
 Alpine = ""
 Arch = ""
 CentOS = ""
-Debian = ""
+Debian = "󰣚"
 Fedora = ""
 FreeBSD = ""
 Gentoo = ""
