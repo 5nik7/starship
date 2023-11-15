@@ -5,73 +5,9 @@
 palette = "catppuccin_macchiato"
 add_newline = true
 
-format="$os$directory$git_branch$git_status$line_break$character"
+format="$os$hostname$directory$git_branch$git_status$line_break$character"
 
 right_format = "$cmd_duration$time"
-
-[line_break]
-disabled = true
-
-[cmd_duration]
-format = "[$duration](flamingo) "
-disabled = true
-
-[time]
-disabled = true
-use_12hr = true
-time_format = "%R"
-format = '[$time](fg:overlay0 bg:none)'
-
-[directory]
-format = '[$path]($style) '
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) '
-style = "blue dimmed"
-before_repo_root_style = "blue dimmed"
-repo_root_style = "blue bold"
-truncation_length = 10
-truncate_to_repo = false
-use_os_path_sep = false
-use_logical_path = false
-home_symbol = "~"
-read_only = " "
-
-[jobs]
-format = "[$symbol$number](red)"
-threshold = 1
-disabled = true
-
-[git_branch]
-format = "[](overlay2 dimmed)[$branch](text dimmed) "
-
-[git_status]
-disabled = false
-style = "fg:yellow bg:none"
-staged = " ${count} " # nf-fa-check
-modified = "󰤌 ${count} " # nf-fa-edit
-renamed = "" # nf-md-cursor_text
-untracked = " ${count} " # nf-fa-question
-deleted = "[ ${count}](red) " # nf-fa-remove
-conflicted = " ${count} " # nf-fa-flag
-stashed = "" # nf-fa-bank
-up_to_date = ""
-ahead = "${count} " # nf-md-arrow_expand_up
-behind = "${count} " # nf-md-arrow_expand_down
-diverged = "󰯎 ${ahead_count} ${behind_count} " # nf-md-arrow_expand_vertical
-ignore_submodules = true
-format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
-
-[character]
-success_symbol = "[](sky)"
-error_symbol = "[](red)"
-vimcmd_symbol = "[:](comment bold)"
-format = "$symbol "
-
-[shlvl]
-threshold = 0
-symbol = "^"
-format = "[$symbol](red)"
-repeat = true
-disabled = true
 
 [os]
 format = "[$symbol](blue) "
@@ -95,7 +31,68 @@ Redhat = ""
 RedHatEnterprise = ""
 Ubuntu = ""
 Unknown = ""
-Windows = "󰚌"
+Windows = "󰖳"
+# Windows = "󰚌"
+
+[hostname]
+ssh_only = false
+format = '[$hostname]($style) '
+style = "blue bold"
+trim_at = "."
+disabled = false
+
+[directory]
+format = '[$path]($style) '
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) '
+style = "teal bold"
+before_repo_root_style = "teal bold"
+repo_root_style = "teal bold"
+truncation_length = 10
+truncate_to_repo = false
+use_os_path_sep = false
+use_logical_path = false
+home_symbol = "~"
+read_only = " "
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch](pink bold) "
+
+[git_status]
+disabled = false
+style = "fg:yellow bg:none"
+staged = " ${count} " # nf-fa-check
+modified = "󰤌 ${count} " # nf-fa-edit
+renamed = "" # nf-md-cursor_text
+untracked = " ${count} " # nf-fa-question
+deleted = "[ ${count}](red) " # nf-fa-remove
+conflicted = " ${count} " # nf-fa-flag
+stashed = "" # nf-fa-bank
+up_to_date = ""
+ahead = "${count} " # nf-md-arrow_expand_up
+behind = "${count} " # nf-md-arrow_expand_down
+diverged = "󰯎 ${ahead_count} ${behind_count} " # nf-md-arrow_expand_vertical
+ignore_submodules = true
+format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = "[](green bold)"
+error_symbol = "[](red bold)"
+vimcmd_symbol = "[:](mauve bold)"
+format = "$symbol "
+
+[cmd_duration]
+format = "[$duration](flamingo) "
+disabled = true
+
+[time]
+disabled = true
+use_12hr = true
+time_format = "%R"
+format = '[$time](fg:overlay0 bg:none)'
 
 [nodejs]
 detect_folders = ['']
