@@ -10,7 +10,7 @@ format="$os$hostname$directory$git_branch$git_status$line_break$character"
 right_format = "$cmd_duration$time"
 
 [os]
-format = "[$symbol](blue) "
+format = "[$symbol](blue)"
 disabled = false
 
 [os.symbols]
@@ -31,7 +31,7 @@ Redhat = ""
 RedHatEnterprise = ""
 Ubuntu = ""
 Unknown = ""
-Windows = "󰖳"
+Windows = ""
 # Windows = "󰚌"
 
 [hostname]
@@ -55,7 +55,7 @@ home_symbol = "~"
 read_only = " "
 
 [git_branch]
-symbol = " "
+symbol = " "
 format = "[$symbol$branch](pink bold) "
 
 [git_status]
