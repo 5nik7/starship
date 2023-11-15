@@ -79,8 +79,8 @@ format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
 disabled = false
 
 [character]
-success_symbol = "[](green bold)"
-error_symbol = "[](red bold)"
+success_symbol = "[](green bold)"
+error_symbol = "[](red bold)"
 vimcmd_symbol = "[:](mauve bold)"
 format = "$symbol "
 
