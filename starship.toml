@@ -3,7 +3,7 @@
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 
 palette = "catppuccin_macchiato"
-add_newline = true
+add_newline = false
 
 format="$os$hostname$directory$git_branch$git_status$line_break$character"
 
