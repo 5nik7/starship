@@ -4,6 +4,7 @@
 
 palette = "catppuccin_macchiato"
 add_newline = true
+command_timeout = 1000
 
 format="$os$hostname$directory$git_branch$git_status$line_break$character"
 
@@ -31,7 +32,13 @@ Redhat = ""
 RedHatEnterprise = ""
 Ubuntu = ""
 Unknown = ""
-Windows = ""
+Windows = "󰍲 "
+# Windows = " "
+# Windows = "󰖳 "
+# Windows = "󰨡 "
+# Windows = "󱇙 "
+# Windows = "󰕰 "󰍲
+# Windows = "󰨑 "
 # Windows = "󰚌"
 
 [hostname]
@@ -137,4 +144,3 @@ mantle = "#1e2030"
 crust = "#181926"
 comment = "#5f5f87"
 hotpink = "#ff87af"
-
