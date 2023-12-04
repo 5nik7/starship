@@ -11,14 +11,14 @@ format="$os$hostname$directory$git_branch$git_status$line_break$character"
 right_format = "$cmd_duration$time"
 
 [os]
-format = "[$symbol](blue)"
+format = "[$symbol](blue) "
 disabled = false
 
 [os.symbols]
 Alpine = ""
 Arch = ""
 CentOS = ""
-Debian = "󰣚 "
+Debian = "󰣚"
 Fedora = ""
 FreeBSD = ""
 Gentoo = ""
@@ -32,7 +32,7 @@ Redhat = ""
 RedHatEnterprise = ""
 Ubuntu = ""
 Unknown = ""
-Windows = "󰍲 "
+Windows = "󰍲"
 # Windows = " "
 # Windows = "󰖳 "
 # Windows = "󰨡 "
@@ -42,7 +42,7 @@ Windows = "󰍲 "
 # Windows = "󰚌"
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = '[$hostname]($style) '
 style = "blue bold"
 trim_at = "."
@@ -83,11 +83,11 @@ ignore_submodules = true
 format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
 
 [line_break]
-disabled = false
+disabled = true
 
 [character]
-success_symbol = "[](green bold)"
-error_symbol = "[](red bold)"
+success_symbol = "[](green bold)"
+error_symbol = "[](red bold)"
 vimcmd_symbol = "[:](mauve bold)"
 format = "$symbol "
 
