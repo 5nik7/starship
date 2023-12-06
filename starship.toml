@@ -2,7 +2,7 @@
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 
-palette = "catppuccin_macchiato"
+palette = "dream"
 add_newline = true
 command_timeout = 1000
 
@@ -115,20 +115,20 @@ format = "[$symbol($version)]($style) "
 [python]
 format = '[\($virtualenv\)](yellow)'
 
-[palettes.catppuccin_macchiato]
+[palettes.dream]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
 pink = "#f5bde6"
-mauve = "#c6a0f6"
-red = "#ed8796"
+mauve = "#C8A6FF"
+red = "#F7768E"
 maroon = "#ee99a0"
 peach = "#f5a97f"
-yellow = "#eed49f"
-green = "#a6da95"
-teal = "#8bd5ca"
+yellow = "#FFD79C"
+green = "#63EBBC"
+teal = "#3DE0F8"
 sky = "#91d7e3"
 sapphire = "#7dc4e4"
-blue = "#8aadf4"
+blue = "#7AA2F7"
 lavender = "#b7bdf8"
 text = "#cad3f5"
 subtext1 = "#b8c0e0"
