@@ -3,7 +3,7 @@
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 
 palette = "dream"
-add_newline = false
+add_newline = true
 command_timeout = 1000
 
 format="$os$hostname$directory$git_branch$git_status$line_break$character"
