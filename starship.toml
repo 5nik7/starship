@@ -11,12 +11,14 @@ format="$os$hostname$directory$git_branch$git_status$line_break$character"
 right_format = "$cmd_duration$time"
 
 [os]
-format = "[$symbol](blue) "
+format = "[$symbol](black) "
 disabled = false
 
 [os.symbols]
 Alpine = ""
+# Arch = ""
 Arch = ""
+# Arch = "󰚌"
 CentOS = ""
 Debian = "󰣚"
 Fedora = ""
@@ -32,19 +34,20 @@ Redhat = ""
 RedHatEnterprise = ""
 Ubuntu = ""
 Unknown = ""
+# Windows = ""
 Windows = "󰍲"
-# Windows = " "
-# Windows = "󰖳 "
-# Windows = "󰨡 "
-# Windows = "󱇙 "
-# Windows = "󰕰 "󰍲
-# Windows = "󰨑 "
+# Windows = ""
+# Windows = "󰖳"
+# Windows = "󰨡"
+# Windows = "󱇙"
+# Windows = "󰕰"
+# Windows = "󰨑"
 # Windows = "󰚌"
 
 [hostname]
-ssh_only = true
-format = '[$hostname]($style) '
-style = "blue bold"
+ssh_only = false
+format = '[@$hostname]($style) '
+style = "white"
 trim_at = "."
 disabled = false
 
