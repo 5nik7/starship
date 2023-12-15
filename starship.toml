@@ -11,7 +11,7 @@ format="$os$hostname$directory$git_branch$git_status$line_break$character"
 right_format = "$cmd_duration$time"
 
 [os]
-format = "[$symbol](black) "
+format = "[$symbol](blue) "
 disabled = false
 
 [os.symbols]
@@ -34,8 +34,8 @@ Redhat = ""
 RedHatEnterprise = ""
 Ubuntu = ""
 Unknown = ""
-Windows = ""
-# Windows = "󰍲"
+# Windows = ""
+Windows = "󰍲"
 # Windows = ""
 # Windows = "󰖳"
 # Windows = "󰨡"
@@ -49,7 +49,7 @@ ssh_only = false
 format = '[@$hostname]($style) '
 style = "white"
 trim_at = "."
-disabled = false
+disabled = true
 
 [directory]
 format = '[$path]($style) '
@@ -89,8 +89,10 @@ format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
 disabled = true
 
 [character]
+# success_symbol = "[](green bold)"
+# error_symbol = "[](red bold)"
 success_symbol = "[](green bold)"
-error_symbol = "[](red bold)"
+error_symbol= "[](green red)"
 vimcmd_symbol = "[:](purple bold)"
 format = "$symbol "
 
