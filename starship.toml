@@ -9,7 +9,7 @@ palette = "dream"
 add_newline = true
 command_timeout = 1000
 
-format="$os$shell$hostname$directory$git_branch$git_status$line_break$character"
+format = "$os$username$hostname$directory$git_branch$git_status$line_break$character"
 
 right_format = "$cmd_duration$time"
 
@@ -26,7 +26,7 @@ success_symbol = "[󰇁](color10)"
 error_symbol = "[󰇁](color9)"
 # success_symbol = "[](green bold)"
 # error_symbol= "[](green red)"
-vimcmd_symbol = "[:](color13 bold)"
+vimcmd_symbol = "[:](color4 bold)"
 format = "$symbol "
 
 
@@ -47,9 +47,9 @@ show_always = true
 [directory]
 format = '[$path]($style) '
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) '
-style = "color6 italic"
+style = "color14 italic"
 before_repo_root_style = "color16 italic"
-repo_root_style = "color6 bold italic"
+repo_root_style = "color6 bold italic underline"
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
@@ -60,22 +60,22 @@ read_only = " "
 [git_branch]
 symbol = ""
 # symbol = " "
-format = '[$symbol](color10) [$branch](color10) '
+format = '[$symbol](color11) [$branch](color11) '
 
 [git_status]
 disabled = false
 style = "fg:color3 bg:none"
-staged = " ${count} " # nf-fa-check
-modified = "󰤌 ${count} " # nf-fa-edit
-renamed = "" # nf-md-cursor_text
-untracked = " ${count} " # nf-fa-question
-deleted = "[ ${count}](red) " # nf-fa-remove
-conflicted = " ${count} " # nf-fa-flag
-stashed = "" # nf-fa-bank
+staged = " ${count} "                                               # nf-fa-check
+modified = "󰤌 ${count} "                                             # nf-fa-edit
+renamed = ""                                                         # nf-md-cursor_text
+untracked = " ${count} "                                            # nf-fa-question
+deleted = "[ ${count}](red) "                                       # nf-fa-remove
+conflicted = " ${count} "                                           # nf-fa-flag
+stashed = ""                                                         # nf-fa-bank
 up_to_date = ""
-ahead = "${count} " # nf-md-arrow_expand_up
-behind = "${count} " # nf-md-arrow_expand_down
-diverged = "󰯎 ${ahead_count} ${behind_count} " # nf-md-arrow_expand_vertical
+ahead = "${count} "                                                 # nf-md-arrow_expand_up
+behind = "${count} "                                                # nf-md-arrow_expand_down
+diverged = "󰯎 ${ahead_count} ${behind_count} "                       # nf-md-arrow_expand_vertical
 ignore_submodules = true
 format = "[($staged$modified$untracked$deleted$conflicted)]($style)"
 
