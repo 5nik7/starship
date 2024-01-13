@@ -1,16 +1,20 @@
-#                                  
+#                                     󰅂      
 
 "$schema" = 'https://starship.rs/config-schema.json'
+# [line_break]
+# disabled = false
 
-# add_newline = false
+add_newline = false
 # scan_timeout = 10
 # command_timeout = 1000
 
-format ="""
-$os\
+# [line_break]
+# disabled = false
+
+format ="""$os\
 $username\
 $hostname\
-[:](color5 italic)$directory\
+[:](purple italic)$directory\
 $git_branch\
 $git_status\
 $python\
@@ -18,7 +22,7 @@ $ruby\
 $fill\
 $cmd_duration\
 $time\
-[ ](color19)$shell\
+$shell\
 $line_break\
 $character\
 """
@@ -26,8 +30,9 @@ $character\
 palette = "dream"
 
 [fill]
-# symbol = ''
-symbol = ''
+symbol = ''
+# symbol = ''
+# symbol = ''
 style = 'black'
 
 
@@ -37,19 +42,21 @@ style = 'black'
 # format = '[:](color20 italic)[64]($style)'
 
 [shell]
-format = ' [$indicator]($style)'
+format = '[](bg:blue fg:cyan)[$indicator]($style)'
 fish_indicator = ' 󰈺 '
 # powershell_indicator = ' _ '
-powershell_indicator = '  '
+# powershell_indicator = '  '
+powershell_indicator = '  '
 bash_indicator = ' 󱆃 '
-zsh_indicator = ' 󱆃 '
+zsh_indicator = ' z󱆃 '
+cmd_indicator = '  '
 unknown_indicator = ' mystery shell '
-style = 'bg:color18 fg:background'
+style = 'bg:cyan fg:black'
 disabled = false
 
 [os]
 format = '[$symbol]($style)'
-style = 'color15'
+style = 'bright-white'
 disabled = false
 
 [os.symbols]
@@ -74,8 +81,8 @@ Windows = ''
 
 
 [username]
-style_user = 'color13 italic'
-style_root = 'color5 italic'
+style_user = 'bright-purple italic'
+style_root = 'purple italic'
 format = '[njen]($style)'
 disabled = false
 show_always = true
@@ -83,13 +90,13 @@ show_always = true
 [hostname]
 ssh_only = false
 format = '[@$hostname]($style)'
-style = 'color7 italic'
+style = 'white italic'
 trim_at = '.'
 disabled = false
 
 [localip]
 ssh_only = false
-format = '@[$localipv4](color8) '
+format = '@[$localipv4](bright-black) '
 disabled = false
 
 # [shlvl]
@@ -106,10 +113,10 @@ disabled = false
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](color6) '
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](cyan) '
 style = 'blue italic'
 before_repo_root_style = 'blue italic'
-repo_root_style = 'color14 bold'
+repo_root_style = 'bright-cyan bold'
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
@@ -119,14 +126,14 @@ read_only = ' '
 [time]
 disabled = false
 time_format = '%R' # Hour:Minute Format
-style = 'color20'
-format = '[  [$time](color18)]($style)'
+style = 'bg:blue fg:black'
+format = '[](bg:none fg:blue)[ $time ]($style)'
 
 [cmd_duration]
 min_time = 500
-show_milliseconds = true
-format = "[ $duration]($style)"
-style = "color8"
+show_milliseconds = false
+format = "[](black)[ $duration ]($style)"
+style = "yellow"
 
 # [line_break]
 # disabled = false
@@ -134,40 +141,24 @@ style = "color8"
 [git_branch]
 # symbol = ""
 symbol = ""
-# symbol = " "
+# symbol = ""
 format = '[$symbol $branch]($style)'
 style = "bright-black"
 
 [git_status]
 disabled = false
 format = ' $all_status$ahead_behind$diverged'
-staged     = '[ ](bold green)'
-modified   = '[ ](bold bright-yellow)'
-renamed    = '[ ](bold bright-yellow)'
-deleted    = '[ ](bold red)'
-stashed    = '[󰜦 ](bold color23)'
-untracked  = '[ ](bold color23)'
-conflicted = '[ ](bold red)'
-up_to_date = '[ ](bold green)'
+staged     = '[ ${count} ](bold green)'
+modified   = '[ ${count} ](bold bright-yellow)'
+renamed    = ''
+deleted    = '[ ${count} ](bold red)'
+stashed    = ''
+untracked  = ''
+conflicted = '[ ${count} ](bold red)'
+up_to_date = ''
 ahead = '[⇡${count}](bold green)'
 behind = '[⇣${count}](bold red)'
 diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}](bold red))'
-
-# disabled = false
-# style = 'fg:color3 bg:none'
-# staged = ' ${count} '
-# modified = '󰤌 ${count} '
-# renamed = ''
-# untracked = ' ${count} '
-# deleted = '[ ${count}](red) '
-# conflicted = ' ${count} '
-# stashed = ''
-# up_to_date = ''
-# ahead = '${count} '
-# behind = '${count} '
-# diverged = '󰯎 ${ahead_count} ${behind_count} '
-# ignore_submodules = true
-# format = '[($staged$modified$untracked$deleted$conflicted)]($style)'
 
 [nodejs]
 detect_folders = ['']
@@ -177,21 +168,21 @@ format = ' [$symbol($version)]($style) '
 
 [ruby]
 symbol = ' '
-style = 'color9'
+style = 'bright-red'
 format = '[$symbol($version)]($style) '
 
 [python]
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-style = "color2"
+style = "green"
 symbol = '🐍 '
 pyenv_version_name = true
 
 [character]
 #success_symbol = '[󰇁](color10)'
 #error_symbol = '[󰇁](color9)'
-success_symbol = '[ 󰅂 ](color10)'
-error_symbol= '[ 󰅂 ](color9)'
-vimcmd_symbol = '[:](color4 bold)'
+success_symbol = '[ ](bright-green)'
+error_symbol= '[ ](bright-red)'
+vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
 
 [palettes.dream]
