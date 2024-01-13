@@ -1,4 +1,4 @@
-#                                     󰅂      
+#                                  󰇁    󰍴  󰖰   󰅂       
 
 "$schema" = 'https://starship.rs/config-schema.json'
 # [line_break]
@@ -30,8 +30,11 @@ $character\
 palette = "dream"
 
 [fill]
-symbol = ''
-# symbol = ''
+symbol = ''
+# symbol = '󰖰'
+# symbol = '󰍴'
+# symbol = ''
+# symbol = '󱋰'
 # symbol = ''
 style = 'black'
 
@@ -48,7 +51,7 @@ fish_indicator = ' 󰈺 '
 # powershell_indicator = '  '
 powershell_indicator = '  '
 bash_indicator = ' 󱆃 '
-zsh_indicator = ' z󱆃 '
+zsh_indicator = ' Z '
 cmd_indicator = '  '
 unknown_indicator = ' mystery shell '
 style = 'bg:cyan fg:black'
@@ -81,9 +84,9 @@ Windows = ''
 
 
 [username]
-style_user = 'bright-purple italic'
-style_root = 'purple italic'
-format = '[njen]($style)'
+style_user = 'purple italic'
+style_root = 'bright-black italic'
+format = '[$user]($style)'
 disabled = false
 show_always = true
 
@@ -162,6 +165,7 @@ diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}
 
 [nodejs]
 detect_folders = ['']
+symbol = '󰎙 '
 detect_files = ['package.json', '.node-version']
 style = 'green'
 format = ' [$symbol($version)]($style) '
@@ -178,10 +182,12 @@ symbol = '🐍 '
 pyenv_version_name = true
 
 [character]
-#success_symbol = '[󰇁](color10)'
-#error_symbol = '[󰇁](color9)'
-success_symbol = '[ ](bright-green)'
-error_symbol= '[ ](bright-red)'
+#success_symbol = '[](bright-green)'
+#error_symbol = '[](bright-red)'
+#success_symbol = '[󰇁](bright-green)'
+#error_symbol = '[󰇁](bright-red)'
+success_symbol = '[](bright-green)'
+error_symbol= '[](bright-red)'
 vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
 
