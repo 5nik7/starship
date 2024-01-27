@@ -11,18 +11,19 @@ add_newline = false
 # [line_break]
 # disabled = false
 
-format ="""$os\
+format ="""\
+$line_break\
+$os\
 $username\
 $hostname\
 [:](purple italic)$directory\
 $git_branch\
 $git_status\
-$python\
-$ruby\
 $fill\
 $cmd_duration\
-$time\
-$shell\
+$nodejs\
+$python\
+$ruby\
 $line_break\
 $character\
 """
@@ -31,6 +32,7 @@ palette = "dream"
 
 [fill]
 symbol = ''
+# symbol = '━'
 # symbol = '󰖰'
 # symbol = '󰍴'
 # symbol = ''
@@ -39,32 +41,42 @@ symbol = ''
 style = 'black'
 
 
+[custom.zsh]
+when = """ test "$STARSHIP_SHELL" "==" "zsh" """
+format =  "[󰇁]($style) "
+style = 'bright-green'
+
+[custom.powershell]
+when = """ test "$STARSHIP_SHELL" "==" "pwsh" """
+format =  "[󰅂]($style) "
+style = 'bright-green'
+
 # [custom.64]
 # when = ' test "$MSYSTEM" = "MINGW64" '
 # style = 'color15 italic bold'
 # format = '[:](color20 italic)[64]($style)'
 
-[shell]
-format = '[](bg:blue fg:cyan)[$indicator]($style)'
-fish_indicator = ' 󰈺 '
-# powershell_indicator = ' _ '
-# powershell_indicator = '  '
-powershell_indicator = '  '
-bash_indicator = ' 󱆃 '
-zsh_indicator = ' Z '
-cmd_indicator = '  '
-unknown_indicator = ' mystery shell '
-style = 'bg:cyan fg:black'
-disabled = false
+# [shell]
+# format = '[](bg:blue fg:cyan)[$indicator]($style)'
+# fish_indicator = ' 󰈺 '
+# # powershell_indicator = ' _ '
+# # powershell_indicator = '  '
+# powershell_indicator = '  '
+# bash_indicator = ' 󱆃 '
+# zsh_indicator = ' z '
+# cmd_indicator = '  '
+# unknown_indicator = ' mystery shell '
+# style = 'bg:cyan fg:black'
+# disabled = true
 
 [os]
-format = '[$symbol]($style)'
+format = '[$symbol]($style) '
 style = 'bright-white'
 disabled = false
 
 [os.symbols]
 Alpine = ''
-Arch = ''
+Arch = '󰣇'
 CentOS = ''
 Debian = '󰣚'
 Fedora = ''
@@ -78,14 +90,14 @@ openSUSE = ''
 Raspbian = ''
 Redhat = ''
 RedHatEnterprise = ''
-Ubuntu = ''
+Ubuntu = ''
 Unknown = ''
-Windows = ''
+Windows = '󰍲'
 
 
 [username]
-style_user = 'purple italic'
-style_root = 'bright-black italic'
+style_user = 'white italic'
+style_root = 'bright-white italic'
 format = '[$user]($style)'
 disabled = false
 show_always = true
@@ -107,19 +119,19 @@ disabled = false
 # format = '$shlvl level(s) down'
 # threshold = 3
 
-# [directory.substitutions]
+[directory.substitutions]
 # "/Documents/" = "  "
 # "Downloads" = " "
 # "Music" = " "
 # "Pictures" = " "
-# "/" = ""
+"C:/" = "c"
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](cyan) '
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue italic) '
 style = 'blue italic'
 before_repo_root_style = 'blue italic'
-repo_root_style = 'bright-cyan bold'
+repo_root_style = 'bright-blue italic bold'
 truncation_length = 10
 truncate_to_repo = false
 use_os_path_sep = false
@@ -127,7 +139,7 @@ use_logical_path = false
 read_only = ' '
 
 [time]
-disabled = false
+disabled = true
 time_format = '%R' # Hour:Minute Format
 style = 'bg:blue fg:black'
 format = '[](bg:none fg:blue)[ $time ]($style)'
@@ -164,11 +176,10 @@ behind = '[⇣${count}](bold red)'
 diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}](bold red))'
 
 [nodejs]
-detect_folders = ['']
+# detect_folders = ['']
 symbol = '󰎙 '
-detect_files = ['package.json', '.node-version']
 style = 'green'
-format = ' [$symbol($version)]($style) '
+format = '[$symbol($version)]($style) '
 
 [ruby]
 symbol = ' '
@@ -176,24 +187,31 @@ style = 'bright-red'
 format = '[$symbol($version)]($style) '
 
 [python]
-format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
 style = "green"
 symbol = '🐍 '
 pyenv_version_name = true
 
 [character]
-#success_symbol = '[](bright-green)'
-#error_symbol = '[](bright-red)'
+# success_symbol = '[](bright-green)'
+# error_symbol = '[](bright-red)'
 #success_symbol = '[󰇁](bright-green)'
 #error_symbol = '[󰇁](bright-red)'
-success_symbol = '[](bright-green)'
-error_symbol= '[](bright-red)'
+success_symbol = '[󰅂](bright-green)'
+error_symbol= '[󰅂](bright-red)'
+# success_symbol = '[](bright-green)'
+# error_symbol= '[](bright-red)'
 vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
 
 [palettes.dream]
-foreground = '#D6E4FF'
+foreground = '#CFE8FC'
 background = '#141C31'
+darkest = '#0c1121'
+void = '#0f172a'
+abyss = '#101529'
+backgroundhl = '#101c34'
+backgroundhl2 = '#19233D'
 color0 = '#2E3B59'
 color1 = '#FF4A7B'
 color2 = '#70FA85'
@@ -207,9 +225,9 @@ color9 = '#FF5784'
 color10 = '#afff87'
 color11 = '#FFEE9C'
 color12 = '#66ADFF'
-color13 = '#706EFF'
+color13 = '#706eff'
 color14 = '#00ffee'
-color15 = '#CFE8FC'
+color15 = '#a4b6d5'
 color16 = '#1c5494'
 color17 = '#7206FF'
 color18 = '#9ad6df'
@@ -218,3 +236,12 @@ color20 = '#46b4c4'
 color21 = '#18294c'
 color22 = '#b18784'
 color23 = '#beda99'
+color24 = '#49474c' 
+color25 = '#756c7f'
+color26 = '#353c76'
+color27 = '#2A4359'
+color28 = '#4d638d'
+color29 = '#4e787b'
+color30 = '#14133d'
+color31 = '#1C7CA4'
+color32 = '#848792'
