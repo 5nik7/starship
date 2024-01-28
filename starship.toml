@@ -1,4 +1,4 @@
-#                                  󰇁    󰍴  󰖰   󰅂       
+#                                  󰇁    󰍴  󰖰   󰅂    󰇜      󰬫 󰬩 󰬧 󰯱    󰂸 ⭘       
 
 "$schema" = 'https://starship.rs/config-schema.json'
 # [line_break]
@@ -13,10 +13,8 @@ add_newline = false
 
 format ="""\
 $line_break\
-$os\
-$username\
-$hostname\
-[:](purple italic)$directory\
+$directory\
+${custom.pwsh}\
 $git_branch\
 $git_status\
 $fill\
@@ -24,6 +22,9 @@ $cmd_duration\
 $nodejs\
 $python\
 $ruby\
+$username\
+$hostname\
+$os\
 $line_break\
 $character\
 """
@@ -38,18 +39,27 @@ symbol = ''
 # symbol = ''
 # symbol = '󱋰'
 # symbol = ''
+# symbol = '󰵼'
+# symbol = '󰔌'
 style = 'black'
 
 
-[custom.zsh]
-when = """ test "$STARSHIP_SHELL" "==" "zsh" """
-format =  "[󰇁]($style) "
-style = 'bright-green'
+# [custom.pwsh]
+# command = """
+# git rev-parse --is-inside-work-tree
+# $gitRemote = git ls-remote --get-url 2> $null
+# $symbol = ' '
+# switch -regex ($gitRemote) {
+#     'github'    { $symbol = ' ' }
+# }
+# echo $symbol
+# """
+# when = 'git rev-parse --is-inside-work-tree'
+# shell = ["pwsh", "-NoProfile", "-Command", "-"]
+# format =  "[$output]($style) "
+# style = 'bright-green'
 
-[custom.powershell]
-when = """ test "$STARSHIP_SHELL" "==" "pwsh" """
-format =  "[󰅂]($style) "
-style = 'bright-green'
+
 
 # [custom.64]
 # when = ' test "$MSYSTEM" = "MINGW64" '
@@ -70,8 +80,8 @@ style = 'bright-green'
 # disabled = true
 
 [os]
-format = '[$symbol]($style) '
-style = 'bright-white'
+format = ' [$symbol]($style) '
+style = 'white'
 disabled = false
 
 [os.symbols]
@@ -92,20 +102,22 @@ Redhat = ''
 RedHatEnterprise = ''
 Ubuntu = ''
 Unknown = ''
-Windows = '󰍲'
+Windows = '󰖳'
+# Windows = ''
+# Windows = '󰍲'
 
 
 [username]
-style_user = 'white italic'
-style_root = 'bright-white italic'
-format = '[$user]($style)'
+style_user = 'white italic dimmed'
+style_root = 'bright-red italic'
+format = '[njen]($style)'
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@$hostname]($style)'
-style = 'white italic'
+format = '[@$hostname]($style) [](black)'
+style = 'purple italic'
 trim_at = '.'
 disabled = false
 
@@ -120,19 +132,37 @@ disabled = false
 # threshold = 3
 
 [directory.substitutions]
-# "/Documents/" = "  "
-# "Downloads" = " "
-# "Music" = " "
-# "Pictures" = " "
-"C:/" = "c"
+# '/Documents/' = '  '
+# 'Downloads' = ' '
+# 'Music' = ' '
+# 'Pictures' = ' '
+# 'C:/' = '󰯱'
+# 'C:/' = '  '
+'/mnt/c' = 'C:/'
+# 'C:/' = 'C:'
+# '~' = '󰜥'
+# '/' = ''
+# '~' = '󰜥'
+# '󰜥/' = '󰜥'
+# '~' = '󰜥 '
+# '󰜥 \' = '󰜥 /'
+# 'repos' = ' repos'
+# '/' = ''
+# '󰜥' = '󰜥'
+# '󰜥\' = ''
+# '*\*' = '*'
+
+
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue italic) '
-style = 'blue italic'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue italic)[$read_only]($read_only_style) '
+style = 'bright-blue italic'
 before_repo_root_style = 'blue italic'
-repo_root_style = 'bright-blue italic bold'
-truncation_length = 10
+repo_root_style = 'bright-blue bold italic'
+truncation_length = 0
+# truncation_symbol = ' '
+# home_symbol = ' '
 truncate_to_repo = false
 use_os_path_sep = false
 use_logical_path = false
@@ -147,7 +177,8 @@ format = '[](bg:none fg:blue)[ $time ]($style)'
 [cmd_duration]
 min_time = 500
 show_milliseconds = false
-format = "[](black)[ $duration ]($style)"
+format = "[ $duration ]($style)"
+# format = "[](black)[ $duration ]($style)"
 style = "yellow"
 
 # [line_break]
@@ -158,7 +189,7 @@ style = "yellow"
 symbol = ""
 # symbol = ""
 format = '[$symbol $branch]($style)'
-style = "bright-black"
+style = "yellow"
 
 [git_status]
 disabled = false
@@ -179,15 +210,15 @@ diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}
 # detect_folders = ['']
 symbol = '󰎙 '
 style = 'green'
-format = '[$symbol($version)]($style) '
+format = ' [$symbol($version)]($style) [](black) '
 
 [ruby]
 symbol = ' '
 style = 'bright-red'
-format = '[$symbol($version)]($style) '
+format = ' [$symbol($version)]($style)'
 
 [python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 style = "green"
 symbol = '🐍 '
 pyenv_version_name = true
@@ -197,10 +228,10 @@ pyenv_version_name = true
 # error_symbol = '[](bright-red)'
 #success_symbol = '[󰇁](bright-green)'
 #error_symbol = '[󰇁](bright-red)'
-success_symbol = '[󰅂](bright-green)'
-error_symbol= '[󰅂](bright-red)'
-# success_symbol = '[](bright-green)'
-# error_symbol= '[](bright-red)'
+# success_symbol = '[󰅂](bright-green)'
+# error_symbol= '[󰅂](bright-red)'
+success_symbol = '[](bright-green)'
+error_symbol= '[](bright-red)'
 vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
 
