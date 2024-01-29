@@ -1,4 +1,4 @@
-#                                  󰇁    󰍴  󰖰   󰅂    󰇜      󰬫 󰬩 󰬧 󰯱    󰂸 ⭘       
+#              ╱    ╲                  󰇁     󰍴  󰖰   󰅂 >      󰇜      󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝ ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:
 
 "$schema" = 'https://starship.rs/config-schema.json'
 # [line_break]
@@ -13,26 +13,27 @@ add_newline = false
 
 format ="""\
 $line_break\
+[┌󰍴](black)$os\
+$username\
+$hostname\
 $directory\
-${custom.pwsh}\
 $git_branch\
 $git_status\
-$fill\
-$cmd_duration\
 $nodejs\
 $python\
 $ruby\
-$username\
-$hostname\
-$os\
+$fill\
+$cmd_duration\
 $line_break\
-$character\
+[└󰍴󰍴](black)$character\
 """
 
 palette = "dream"
 
 [fill]
-symbol = ''
+symbol = '─'
+# symbol = ''
+# symbol = '╌'
 # symbol = '━'
 # symbol = '󰖰'
 # symbol = '󰍴'
@@ -43,6 +44,15 @@ symbol = ''
 # symbol = '󰔌'
 style = 'black'
 
+# [custom.username]
+# command = """
+# $whoibe = 'root '
+# echo $whoibe
+# """
+# when = 'test [$user] "==" "Administrator"'
+# shell = ["pwsh", "-NoProfile", "-Command", "-"]
+# format =  "[$output]($style) "
+# style = 'bright-green'
 
 # [custom.pwsh]
 # command = """
@@ -60,12 +70,6 @@ style = 'black'
 # style = 'bright-green'
 
 
-
-# [custom.64]
-# when = ' test "$MSYSTEM" = "MINGW64" '
-# style = 'color15 italic bold'
-# format = '[:](color20 italic)[64]($style)'
-
 # [shell]
 # format = '[](bg:blue fg:cyan)[$indicator]($style)'
 # fish_indicator = ' 󰈺 '
@@ -80,8 +84,8 @@ style = 'black'
 # disabled = true
 
 [os]
-format = ' [$symbol]($style) '
-style = 'white'
+format = '[$symbol]($style)'
+style = 'bright-white'
 disabled = false
 
 [os.symbols]
@@ -100,36 +104,34 @@ openSUSE = ''
 Raspbian = ''
 Redhat = ''
 RedHatEnterprise = ''
-Ubuntu = ''
+Ubuntu = ' '
+# Ubuntu = ' '
 Unknown = ''
-Windows = '󰖳'
-# Windows = ''
-# Windows = '󰍲'
-
+# Windows = '󰚌 '
+Windows = '  '
+# Windows = '  '
+# Windows = '󰍲 '
+ 
 
 [username]
 style_user = 'white italic dimmed'
-style_root = 'bright-red italic'
+style_root = 'bright-cyan italic'
 format = '[njen]($style)'
-disabled = false
+disabled = true
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@$hostname]($style) [](black)'
+format = '[@](bright-black italic)[$hostname]($style) '
 style = 'purple italic'
-trim_at = '.'
-disabled = false
+# trim_at = '.'
+disabled = true
 
 [localip]
 ssh_only = false
 format = '@[$localipv4](bright-black) '
 disabled = false
 
-# [shlvl]
-# disabled = true
-# format = '$shlvl level(s) down'
-# threshold = 3
 
 [directory.substitutions]
 # '/Documents/' = '  '
@@ -175,9 +177,9 @@ style = 'bg:blue fg:black'
 format = '[](bg:none fg:blue)[ $time ]($style)'
 
 [cmd_duration]
-min_time = 500
-show_milliseconds = false
-format = "[ $duration ]($style)"
+min_time = 1
+show_milliseconds = true
+format = "[$duration]($style)"
 # format = "[](black)[ $duration ]($style)"
 style = "yellow"
 
@@ -211,6 +213,7 @@ diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}
 symbol = '󰎙 '
 style = 'green'
 format = ' [$symbol($version)]($style) [](black) '
+disabled = true
 
 [ruby]
 symbol = ' '
@@ -230,8 +233,10 @@ pyenv_version_name = true
 #error_symbol = '[󰇁](bright-red)'
 # success_symbol = '[󰅂](bright-green)'
 # error_symbol= '[󰅂](bright-red)'
-success_symbol = '[](bright-green)'
-error_symbol= '[](bright-red)'
+success_symbol = '[](bright-green)'
+error_symbol= '[](bright-red)'
+# success_symbol = '[](bright-green)'
+# error_symbol= '[](bright-red)'
 vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
 
