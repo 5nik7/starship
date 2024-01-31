@@ -1,34 +1,14 @@
 #              ╱    ╲                  󰇁     󰍴  󰖰   󰅂 >      󰇜      󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝ ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:
 
 "$schema" = 'https://starship.rs/config-schema.json'
-# [line_break]
-# disabled = false
 
 add_newline = false
-# scan_timeout = 10
-# command_timeout = 1000
 
-# [line_break]
-# disabled = false
 
-format ="""\
-$line_break\
-[┌󰍴](black)$os\
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_status\
-$nodejs\
-$python\
-$ruby\
-$fill\
-$cmd_duration\
-$line_break\
+format ="""$line_break\
+[┌󰍴](black)$os$username$hostname$directory$git_branch$git_status$nodejs$python$ruby$fill$cmd_duration [─](black) $line_break\
 [└󰍴󰍴](black)$character\
 """
-
-palette = "dream"
 
 [fill]
 symbol = '─'
@@ -239,45 +219,3 @@ error_symbol= '[](bright-red)'
 # error_symbol= '[](bright-red)'
 vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
-
-[palettes.dream]
-foreground = '#CFE8FC'
-background = '#141C31'
-darkest = '#0c1121'
-void = '#0f172a'
-abyss = '#101529'
-backgroundhl = '#101c34'
-backgroundhl2 = '#19233D'
-color0 = '#2E3B59'
-color1 = '#FF4A7B'
-color2 = '#70FA85'
-color3 = '#ffb78e'
-color4 = '#5C8DFF'
-color5 = '#875FFF'
-color6 = '#5BEAFF'
-color7 = '#95C6FF'
-color8 = '#536F8F'
-color9 = '#FF5784'
-color10 = '#afff87'
-color11 = '#FFEE9C'
-color12 = '#66ADFF'
-color13 = '#706eff'
-color14 = '#00ffee'
-color15 = '#a4b6d5'
-color16 = '#1c5494'
-color17 = '#7206FF'
-color18 = '#9ad6df'
-color19 = '#525773'
-color20 = '#46b4c4'
-color21 = '#18294c'
-color22 = '#b18784'
-color23 = '#beda99'
-color24 = '#49474c' 
-color25 = '#756c7f'
-color26 = '#353c76'
-color27 = '#2A4359'
-color28 = '#4d638d'
-color29 = '#4e787b'
-color30 = '#14133d'
-color31 = '#1C7CA4'
-color32 = '#848792'
