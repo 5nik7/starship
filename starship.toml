@@ -1,53 +1,35 @@
-#              ╱    ╲                  󰇁     󰍴  󰖰   󰅂 >      󰇜      󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝ ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:
+#              ╱    ╲                  󰇁     󰍴  󰖰   󰅂 >      󰇜              󰧞 󰧟 󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊  ┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝ ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:  
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
 
 
+# format ="""$line_break\
+# [┌󰍴](black)$os$username$hostname$directory$git_branch$git_status$nodejs$python$ruby$cmd_duration$fill$line_break\
+# [└󰍴󰍴](black)$character\
+# """
+
 format ="""$line_break\
-[┌󰍴](black)$os$username$hostname$directory$git_branch$git_status$nodejs$python$ruby$fill$cmd_duration [─](black) $line_break\
-[└󰍴󰍴](black)$character\
+[┌](black)$fill $cmd_duration$time$line_break\
+[└ ](black)$os$username$hostname$directory $git_branch$git_status$package$nodejs$python$ruby$all$line_break\
+$character\
 """
 
 [fill]
-symbol = '─'
-# symbol = ''
+# symbol = ''
+# symbol = '─'
+symbol = ''
 # symbol = '╌'
 # symbol = '━'
 # symbol = '󰖰'
-# symbol = '󰍴'
+# symbol = '─'
 # symbol = ''
 # symbol = '󱋰'
 # symbol = ''
 # symbol = '󰵼'
 # symbol = '󰔌'
 style = 'black'
-
-# [custom.username]
-# command = """
-# $whoibe = 'root '
-# echo $whoibe
-# """
-# when = 'test [$user] "==" "Administrator"'
-# shell = ["pwsh", "-NoProfile", "-Command", "-"]
-# format =  "[$output]($style) "
-# style = 'bright-green'
-
-# [custom.pwsh]
-# command = """
-# git rev-parse --is-inside-work-tree
-# $gitRemote = git ls-remote --get-url 2> $null
-# $symbol = ' '
-# switch -regex ($gitRemote) {
-#     'github'    { $symbol = ' ' }
-# }
-# echo $symbol
-# """
-# when = 'git rev-parse --is-inside-work-tree'
-# shell = ["pwsh", "-NoProfile", "-Command", "-"]
-# format =  "[$output]($style) "
-# style = 'bright-green'
 
 
 # [shell]
@@ -64,7 +46,7 @@ style = 'black'
 # disabled = true
 
 [os]
-format = '[$symbol]($style)'
+format = '[]($style)'
 style = 'bright-white'
 disabled = false
 
@@ -87,30 +69,32 @@ RedHatEnterprise = '  '
 Ubuntu = '  '
 # Ubuntu = ' '
 Unknown = ' '
+Windows = ''
 # Windows = '󰚌 '
-Windows = '  '
+# Windows = '  '
+# Windows = '󰖳  '
 # Windows = '  '
 # Windows = '󰍲 '
  
 
 [username]
-style_user = 'white italic dimmed'
-style_root = 'bright-cyan italic'
-format = '[njen]($style)'
-disabled = true
+style_user = 'green'
+style_root = 'green'
+format = '[](bright-black)[njen]($style)'
+disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@](bright-black italic)[$hostname]($style) '
-style = 'purple italic'
+format = '[@](green)[$hostname]($style)[](bright-black) '
+style = 'green'
 # trim_at = '.'
-disabled = true
+disabled = false
 
 [localip]
 ssh_only = false
-format = '@[$localipv4](bright-black) '
-disabled = false
+format = '[\($localipv4\)](bright-black) '
+disabled = true
 
 
 [directory.substitutions]
@@ -120,7 +104,7 @@ disabled = false
 # 'Pictures' = ' '
 # 'C:/' = '󰯱'
 # 'C:/' = '  '
-'/mnt/c' = 'C:'
+# '/mnt/c' = 'C:'
 # 'C:/' = 'C:'
 # '~' = '󰜥'
 # '/' = ''
@@ -140,7 +124,7 @@ disabled = false
 format = '[$path]($style)[$read_only]($read_only_style) '
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue italic)[$read_only]($read_only_style) '
 style = 'bright-blue italic'
-before_repo_root_style = 'blue italic'
+before_repo_root_style = 'bright-blue italic'
 repo_root_style = 'bright-blue bold italic'
 truncation_length = 0
 # truncation_symbol = ' '
@@ -151,25 +135,26 @@ use_logical_path = false
 read_only = ' '
 
 [time]
-disabled = true
-time_format = '%R' # Hour:Minute Format
+disabled = false
+time_format = '%I:%M %p'
 style = 'bg:blue fg:black'
-format = '[](bg:none fg:blue)[ $time ]($style)'
+format = '[](bg:bright-black fg:blue)[ $time ]($style)'
 
 [cmd_duration]
 min_time = 1
 show_milliseconds = true
-format = "[$duration]($style)"
-# format = "[](black)[ $duration ]($style)"
-style = "yellow"
+format = "[](bg:none fg:bright-black)[ ](bg:bright-black fg:green)[$duration ]($style)"
+style = "bg:bright-black fg:bright-green bold"
+# format = "[](black) [$duration]($style) "
+# style = "bright-black"
 
-# [line_break]
-# disabled = false
+[line_break]
+disabled = false
 
 [git_branch]
-# symbol = ""
 symbol = ""
 # symbol = ""
+# symbol = ""
 format = '[$symbol $branch]($style)'
 style = "yellow"
 
@@ -188,12 +173,18 @@ ahead = '[⇡${count}](bold green)'
 behind = '[⇣${count}](bold red)'
 diverged = '[ ](bold red)([⇡${ahead_count} ](bold green)[⇣${behind_count}](bold red))'
 
+[package]
+format = '[$symbol$version]($style) '
+symbol = ' '
+style = 'purple'
+
 [nodejs]
-# detect_folders = ['']
-symbol = '󰎙 '
+detect_files = ['package.json']
+detect_folders = []
+symbol = ' '
 style = 'green'
-format = ' [$symbol($version)]($style) [](black) '
-disabled = true
+format = '[$symbol($version)]($style) '
+disabled = false
 
 [ruby]
 symbol = ' '
@@ -201,21 +192,28 @@ style = 'bright-red'
 format = ' [$symbol($version)]($style)'
 
 [python]
-format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 style = "green"
-symbol = '🐍 '
+symbol = ' '
 pyenv_version_name = true
 
+[rust]
+format = '[$symbol$version]($style) '
+style = 'red'
+symbol = ' '
+
 [character]
-# success_symbol = '[](bright-green)'
-# error_symbol = '[](bright-red)'
-#success_symbol = '[󰇁](bright-green)'
-#error_symbol = '[󰇁](bright-red)'
-# success_symbol = '[󰅂](bright-green)'
-# error_symbol= '[󰅂](bright-red)'
-success_symbol = '[](bright-green)'
-error_symbol= '[](bright-red)'
-# success_symbol = '[](bright-green)'
-# error_symbol= '[](bright-red)'
+# success_symbol = '[ ](bright-green)'
+# error_symbol = '[ ](bright-red)'
+#success_symbol = '[ 󰇁](bright-green)'
+#error_symbol = '[ 󰇁](bright-red)'
+# success_symbol = '[ 󰅂](bright-green)'
+# error_symbol= '[ 󰅂](bright-red)'
+success_symbol = '[ ](bright-green)'
+error_symbol= '[ ](bright-red)'
+# success_symbol = '[ ](bright-green)'
+# error_symbol= '[ ](bright-red)'
+# success_symbol = '[ ](bright-green)'
+# error_symbol= '[ ](bright-red)'
 vimcmd_symbol = '[:](blue bold)'
 format = '$symbol '
