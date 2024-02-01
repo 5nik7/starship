@@ -1,23 +1,23 @@
-#              ╱    ╲                  󰇁     󰍴  󰖰   󰅂 >      󰇜              󰧞 󰧟 󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊  ┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝ ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:  
+#              ╱    ╲                  󰇁       󰍴  󰖰   󰅂 >      󰇜              󰧞 󰧟 󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊  ┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝   ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:  
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
 
 
-# format ="""$line_break\
-# [┌󰍴](black)$os$username$hostname$directory$git_branch$git_status$nodejs$python$ruby$cmd_duration$fill$line_break\
-# [└󰍴󰍴](black)$character\
-# """
-
 format ="""$line_break\
-[┌](black)$fill $cmd_duration$time$line_break\
-[└ ](black)$os$username$hostname$directory $git_branch$git_status$package$nodejs$python$ruby$all$line_break\
-$character\
+[┌󰍴](black)$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
+[└󰍴](black)$character\
 """
 
+# format ="""$line_break\
+# [┌](black)$fill $cmd_duration$time$line_break\
+# [└ ](black)$os$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$all$line_break\
+# $character\
+# """
+
 [fill]
-# symbol = ''
+# symbol = ' '
 # symbol = '─'
 symbol = ''
 # symbol = '╌'
@@ -37,6 +37,8 @@ style = 'black'
 # fish_indicator = ' 󰈺 '
 # # powershell_indicator = ' _ '
 # # powershell_indicator = '  '
+# powershell_indicator = '  '
+# powershell_indicator = '  '
 # powershell_indicator = '  '
 # bash_indicator = ' 󱆃 '
 # zsh_indicator = ' z '
@@ -75,19 +77,19 @@ Windows = ''
 # Windows = '󰖳  '
 # Windows = '  '
 # Windows = '󰍲 '
- 
+
 
 [username]
-style_user = 'green'
-style_root = 'green'
-format = '[](bright-black)[njen]($style)'
+style_user = 'cyan'
+style_root = 'cyan'
+format = '[njen]($style)'
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@](green)[$hostname]($style)[](bright-black) '
-style = 'green'
+format = '[@](cyan)[$hostname]($style) '
+style = 'cyan'
 # trim_at = '.'
 disabled = false
 
@@ -123,9 +125,9 @@ disabled = true
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue italic)[$read_only]($read_only_style) '
-style = 'bright-blue italic'
-before_repo_root_style = 'bright-blue italic'
-repo_root_style = 'bright-blue bold italic'
+style = 'bright-blue'
+before_repo_root_style = 'bright-blue'
+repo_root_style = 'bright-blue bold'
 truncation_length = 0
 # truncation_symbol = ' '
 # home_symbol = ' '
@@ -135,18 +137,20 @@ use_logical_path = false
 read_only = ' '
 
 [time]
-disabled = false
+disabled = true
 time_format = '%I:%M %p'
-style = 'bg:blue fg:black'
-format = '[](bg:bright-black fg:blue)[ $time ]($style)'
+# style = 'bg:blue fg:black'
+# format = '[](bg:bright-black fg:blue)[ $time ]($style)'
+style = 'blue'
+format = '[ 󰅐 $time ]($style)'
 
 [cmd_duration]
 min_time = 1
 show_milliseconds = true
-format = "[](bg:none fg:bright-black)[ ](bg:bright-black fg:green)[$duration ]($style)"
-style = "bg:bright-black fg:bright-green bold"
-# format = "[](black) [$duration]($style) "
-# style = "bright-black"
+# format = "[](bg:none fg:bright-black)[ ](bg:bright-black fg:green)[$duration ]($style)"
+# style = "bg:bright-black fg:bright-green bold"
+format = "[](blue) [$duration]($style) "
+style = "bright-blue"
 
 [line_break]
 disabled = false
@@ -202,6 +206,13 @@ format = '[$symbol$version]($style) '
 style = 'red'
 symbol = ' '
 
+[lua]
+format = '[$symbol$version]($style) '
+style = 'bright-yellow'
+symbol = '🌙 '
+detect_folders = []
+detect_files = ['.lua-version']
+
 [character]
 # success_symbol = '[ ](bright-green)'
 # error_symbol = '[ ](bright-red)'
@@ -209,8 +220,8 @@ symbol = ' '
 #error_symbol = '[ 󰇁](bright-red)'
 # success_symbol = '[ 󰅂](bright-green)'
 # error_symbol= '[ 󰅂](bright-red)'
-success_symbol = '[ ](bright-green)'
-error_symbol= '[ ](bright-red)'
+success_symbol = '[](bright-green)'
+error_symbol= '[](bright-red)'
 # success_symbol = '[ ](bright-green)'
 # error_symbol= '[ ](bright-red)'
 # success_symbol = '[ ](bright-green)'
