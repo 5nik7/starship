@@ -1,14 +1,18 @@
-#              ╱    ╲                  󰇁       󰍴  󰖰   󰅂 >      󰇜              󰧞 󰧟 󰬫 󰬩 󰬧 󰯱     󰂸 ⭘     ┆┊  ┈     󰚌 ╵╷─ ▷ ◦ ◻ ♥ ⚝   ❌❓ ❬ ❭ ⟋ ⧸ ⨼ ⨽ -->:  
+#             ╱    ╲               󰪍 󰇁        󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞 󰧟    󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆┊  ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
 
-
 format ="""$line_break\
-[┌󰍴](black)$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
-[└󰍴](black)$character\
+[ ](black)$username$hostname $directory $git_branch$git_status $package $nodejs $python $ruby $fill$cmd_duration$time$line_break\
+[  ](black)$character\
 """
+
+# format ="""$line_break\
+# [┌󰍴](black)$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
+# [└󰍴](black)$character\
+# """
 
 # format ="""$line_break\
 # [┌](black)$fill $cmd_duration$time$line_break\
@@ -17,9 +21,9 @@ format ="""$line_break\
 # """
 
 [fill]
-# symbol = ' '
+# symbol = ''
 # symbol = '─'
-symbol = ''
+symbol = ' '
 # symbol = '╌'
 # symbol = '━'
 # symbol = '󰖰'
@@ -75,7 +79,7 @@ Windows = ''
 # Windows = '󰚌 '
 # Windows = '  '
 # Windows = '󰖳  '
-# Windows = '  '
+# Windows = '󱓝 '
 # Windows = '󰍲 '
 
 
@@ -104,29 +108,30 @@ disabled = true
 # 'Downloads' = ' '
 # 'Music' = ' '
 # 'Pictures' = ' '
-# 'C:/' = '󰯱'
-# 'C:/' = '  '
+'C:/' = 'c:/'
+# 'C:/' = ''
+# 'C:/' = '/'
+# 'C:/' = '󰗦 '
+# 'C:/' = '󰯳 '
+# 'C:/' = ' '
+# 'C:/' = '󰯲 '
+# 'C:/' = '󰬊 '
+# 'C:/' = ' '
+# 'C:/' = '󰫰'
+# 'C:/' = ' '
+# 'C:/' = '/'
 # '/mnt/c' = 'C:'
-# 'C:/' = 'C:'
-# '~' = '󰜥'
 # '/' = ''
 # '~' = '󰜥'
-# '󰜥/' = '󰜥'
-# '~' = '󰜥 '
-# '󰜥 \' = '󰜥 /'
 # 'repos' = ' repos'
-# '/' = ''
-# '󰜥' = '󰜥'
-# '󰜥\' = ''
-# '*\*' = '*'
 
 
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue italic)[$read_only]($read_only_style) '
-style = 'bright-blue'
-before_repo_root_style = 'bright-blue'
+# repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue)[$read_only]($read_only_style) '
+style = 'bright-blue bold'
+before_repo_root_style = 'bright-blue bold'
 repo_root_style = 'bright-blue bold'
 truncation_length = 0
 # truncation_symbol = ' '
@@ -142,7 +147,7 @@ time_format = '%I:%M %p'
 # style = 'bg:blue fg:black'
 # format = '[](bg:bright-black fg:blue)[ $time ]($style)'
 style = 'blue'
-format = '[ 󰅐 $time ]($style)'
+format = '[  $time ]($style)'
 
 [cmd_duration]
 min_time = 1
@@ -151,6 +156,7 @@ show_milliseconds = true
 # style = "bg:bright-black fg:bright-green bold"
 format = "[](blue) [$duration]($style) "
 style = "bright-blue"
+disabled = true
 
 [line_break]
 disabled = false
