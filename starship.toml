@@ -1,11 +1,11 @@
-#             ╱    ╲               󰪍 󰇁        󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞 󰧟    󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆┊  ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭
+#             ╱    ╲               󰪍 󰇁        󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞 󰧟    󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆┊  ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭 
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
 
 format ="""$line_break\
-[ ](black)$username$hostname $directory $git_branch$git_status $package $nodejs $python $ruby $fill$cmd_duration$time$line_break\
+[ ](black)$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
 [  ](black)$character\
 """
 
@@ -128,7 +128,7 @@ disabled = true
 
 
 [directory]
-format = '[$path]($style)[$read_only]($read_only_style) '
+format = '[$path]($style)[$read_only]($read_only_style)  '
 # repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue)[$read_only]($read_only_style) '
 style = 'bright-blue bold'
 before_repo_root_style = 'bright-blue bold'
