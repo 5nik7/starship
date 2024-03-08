@@ -184,8 +184,8 @@ stashed    = ''
 untracked  = ''
 conflicted = '[󰈅 ${count} ](red)'
 up_to_date = ''
-ahead = '[⇡${count}](green)'
-behind = '[⇣${count}](red)'
+ahead = '[⇡${count}](green) '
+behind = '[⇣${count}](red) '
 diverged = '[ ](red)([⇡${ahead_count} ](green)[⇣${behind_count}](red)) '
 
 [package]
