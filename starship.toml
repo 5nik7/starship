@@ -1,8 +1,10 @@
-#             ╱    ╲               󰪍 󰇁        󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞 󰧟    󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆┊  ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭 
+#             ╱    ╲               󰪍 󰇁          󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞 󰧟    󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆ ┊   ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭 
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+
+continuation_prompt = '[  ](black) '
 
 format ="""$line_break\
 [ ](black)$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
@@ -87,16 +89,16 @@ Windows = ''
 
 
 [username]
-style_user = 'cyan'
-style_root = 'cyan'
+style_user = 'bright-purple'
+style_root = 'bright-purple'
 format = '[njen]($style)'
 disabled = false
 show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@](cyan)[$hostname]($style) '
-style = 'cyan'
+format = '[@](bright-purple)[$hostname]($style) '
+style = 'bright-purple'
 # trim_at = '.'
 disabled = false
 
@@ -112,6 +114,8 @@ disabled = true
 # 'Music' = ' '
 # 'Pictures' = ' '
 # 'C:/' = 'c:/'
+# 'C:/' = '/c/'
+# 'C:/' = ' '
 # 'C:/' = ''
 # 'C:/' = '/'
 # 'C:/' = '󰗦 '
@@ -121,10 +125,13 @@ disabled = true
 # 'C:/' = '󰬊 '
 # 'C:/' = ' '
 # 'C:/' = '󰫰'
-# 'C:/' = ' '
-# 'C:/' = '/'
-# '/mnt/c' = 'C:'
+# 'C:/' = ' 
+'C:/' = 'c/'
+'/mnt/c' = 'c//'
+'///' = '/'
+# 'c' = '/c'
 # '/' = ''
+# '/' = ''
 # '~' = '󰜥'
 # 'repos' = ' repos'
 
@@ -231,11 +238,11 @@ detect_files = ['.lua-version']
 #error_symbol = '[ 󰇁](bright-red)'
 # success_symbol = '[ 󰅂](bright-green)'
 # error_symbol= '[ 󰅂](bright-red)'
-success_symbol = '[](bright-green)'
-error_symbol= '[](bright-red)'
+success_symbol = '[](bright-cyan)'
+error_symbol= '[](bright-cyan)'
 # success_symbol = '[ ](bright-green)'
 # error_symbol= '[ ](bright-red)'
 # success_symbol = '[ ](bright-green)'
 # error_symbol= '[ ](bright-red)'
-vimcmd_symbol = '[:](blue bold)'
+vimcmd_symbol = '[](bright-yellow)'
 format = '$symbol '
