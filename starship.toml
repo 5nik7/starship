@@ -1,4 +1,4 @@
-#             ╱    ╲               󰪍 󰇁          󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞 󰧟    󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆ ┊   ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭 
+#             ╱    ╲               󰪍 󰇁          󰁥       󰅂 >      󰥭 󱘹   󰍴   󰇜            󰎍     󰧞     󰬫 󰬩 󰬧 󰬊 󰯲 󰫰 󰨆      󰂸 ⭘     󱪼 󰤃 󰿊 ⏽   ┆ ┊   ┈     󰯆 󰚌 ╵╷─ ▷ ◦ 󰊭 ◻ ♥ ⚝  -->:   󰆧  󰏗 󰲩 󰲭 
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -7,7 +7,7 @@ add_newline = false
 continuation_prompt = '[  ](black) '
 
 format ="""$line_break\
-[ ](black)$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
+[ ](black)$os$username$hostname$directory$git_branch$git_status$package$nodejs$python$ruby$fill$cmd_duration$time$line_break\
 [  ](black)$character\
 """
 
@@ -54,33 +54,33 @@ style = 'black'
 # disabled = true
 
 [os]
-format = '[]($style)'
-style = 'bright-white'
+format = '[$symbol]($style)'
+style = 'bright-blue'
 disabled = false
 
 [os.symbols]
-Alpine = '  '
-Arch = '󰣇  '
-CentOS = '  '
-Debian = '󰣚  '
-Fedora = '  '
-FreeBSD = '  '
-Gentoo = '  '
-Linux = '  '
-Macos = '  '
-Mint = '  '
+Alpine = ' '
+Arch = '󰣇 '
+CentOS = ' '
+Debian = '󰣚 '
+Fedora = ' '
+FreeBSD = ' '
+Gentoo = ' '
+Linux = ' '
+Macos = ' '
+Mint = ' '
 # NixOS = '  '
-NixOS = '󱄅  '
-openSUSE = '  '
-Raspbian = '  '
-Redhat = '  '
-RedHatEnterprise = '  '
-Ubuntu = '  '
+NixOS = '󱄅 '
+openSUSE = ' '
+Raspbian = ' '
+Redhat = ' '
+RedHatEnterprise = ' '
+Ubuntu = ' '
 # Ubuntu = ' '
 Unknown = ' '
-Windows = ''
-# Windows = '󰕰'
-# Windows = '󰚌 '
+# Windows = ' '
+# Windows = '󰕰 '
+Windows = '󰚌 '
 # Windows = '  '
 # Windows = '󰖳  '
 # Windows = '󰨑 '
@@ -92,7 +92,7 @@ Windows = ''
 style_user = 'bright-purple'
 style_root = 'bright-purple'
 format = '[njen]($style)'
-disabled = false
+disabled = true
 show_always = true
 
 [hostname]
@@ -100,7 +100,7 @@ ssh_only = false
 format = '[@](bright-purple)[$hostname]($style) '
 style = 'bright-purple'
 # trim_at = '.'
-disabled = false
+disabled = true
 
 [localip]
 ssh_only = false
@@ -125,7 +125,7 @@ disabled = true
 # 'C:/' = '󰬊 '
 # 'C:/' = ' '
 # 'C:/' = '󰫰'
-# 'C:/' = ' 
+# 'C:/' = '
 'C:/' = '/c/'
 '/mnt/c' = '/c//'
 '///' = '/'
@@ -140,9 +140,9 @@ disabled = true
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style)  '
 # repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path](bright-blue)[$read_only]($read_only_style) '
-style = 'bright-blue bold'
-before_repo_root_style = 'bright-blue bold'
-repo_root_style = 'bright-blue bold'
+style = 'bright-blue'
+before_repo_root_style = 'bright-blue'
+repo_root_style = 'bright-blue'
 truncation_length = 0
 # truncation_symbol = ' '
 # home_symbol = ' '
@@ -239,7 +239,7 @@ detect_files = ['.lua-version']
 # success_symbol = '[ 󰅂](bright-green)'
 # error_symbol= '[ 󰅂](bright-red)'
 success_symbol = '[](bright-cyan)'
-error_symbol= '[](bright-cyan)'
+error_symbol= '[](bright-red)'
 # success_symbol = '[ ](bright-green)'
 # error_symbol= '[ ](bright-red)'
 # success_symbol = '[ ](bright-green)'
