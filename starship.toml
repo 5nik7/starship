@@ -55,7 +55,7 @@ style = 'black'
 
 [os]
 format = '[$symbol]($style)'
-style = 'bright-blue'
+style = 'bright-cyan'
 disabled = false
 
 [os.symbols]
